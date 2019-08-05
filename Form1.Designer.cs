@@ -36,25 +36,26 @@
             // golf_GDV
             // 
             this.golf_GDV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.golf_GDV.Location = new System.Drawing.Point(186, 12);
+            this.golf_GDV.Location = new System.Drawing.Point(136, 12);
             this.golf_GDV.Name = "golf_GDV";
-            this.golf_GDV.Size = new System.Drawing.Size(298, 207);
+            this.golf_GDV.Size = new System.Drawing.Size(405, 259);
             this.golf_GDV.TabIndex = 0;
             // 
             // btn_loaddata
             // 
-            this.btn_loaddata.Location = new System.Drawing.Point(50, 78);
+            this.btn_loaddata.Location = new System.Drawing.Point(22, 77);
             this.btn_loaddata.Name = "btn_loaddata";
             this.btn_loaddata.Size = new System.Drawing.Size(80, 31);
             this.btn_loaddata.TabIndex = 1;
             this.btn_loaddata.Text = "Load button";
             this.btn_loaddata.UseVisualStyleBackColor = true;
+            this.btn_loaddata.Click += new System.EventHandler(this.Btn_loaddata_Click);
             // 
             // GolfBD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(496, 240);
+            this.ClientSize = new System.Drawing.Size(553, 283);
             this.Controls.Add(this.btn_loaddata);
             this.Controls.Add(this.golf_GDV);
             this.Name = "GolfBD";

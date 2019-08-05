@@ -32,6 +32,40 @@ namespace FGolf
         {
             //load datatable columns
             datatablecolumns();
+            //Wrap your code in a Using statement to dispose of it later
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                //Ask a question
+                string QueryString = @"SELECT * FROM Golf order by ID";
+                //Open your connection
+                connection.Open();
+                SqlCommand Command = new SqlCommand(QueryString, connection);
+                //Start your DB reader
+                SqlDataReader reader = Command.ExecuteReader();
+                while (reader.Read())
+                {
+                    //add in each row to the datatable
+                    GolfTable.Rows.Add(
+                        reader["ID"],
+                        reader["Title"],
+                        reader["Firstname"],
+                        reader["Surname"],
+                        reader["Gender"],
+                        reader["DOB"],      
+                        reader["Street"],
+                        reader["Suburb"],
+                        reader["City"],
+                        reader["Available week days"],
+                        reader["Handicap"]);
+                }
+                //Close your DB reader
+                reader.Close();
+                //Close your connection
+                connection.Close();
+              //  btnCountMembers.Visible = true;
+                //add the datatable to the Data Grid View
+                golf_GDV.DataSource = GolfTable;
+            }
         }
         public void datatablecolumns()
         {
@@ -57,6 +91,11 @@ namespace FGolf
                 MessageBox.Show("Datatable not loading");
 
             }
-        }   
+        }
+
+        private void Btn_loaddata_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
